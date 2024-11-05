@@ -11,6 +11,11 @@ public class TasasDeCambio {
     private String base_code;
     private Map<String, Double> conversion_rates;
 
+    public TasasDeCambio(Map<String, Double> conversion_rates, String base_code){
+        this.conversion_rates = conversion_rates;
+        this.base_code = base_code;
+    }
+
     public String getResult() {
         return result;
     }
@@ -47,8 +52,16 @@ public class TasasDeCambio {
         return conversion_rates;
     }
 
-    @Override
     public String toString() {
-        return "Tipo de Divisa:" + conversion_rates;
+        StringBuilder sb = new StringBuilder();
+        sb.append("Tipo de Divisa: ").append(base_code).append("\n");
+        sb.append("Tasas de cambio:\n");
+
+        sb.append("COP: ").append(conversion_rates.get("COP")).append("\n");
+        sb.append("USD: ").append(conversion_rates.get("USD")).append("\n");
+        sb.append("ARS: ").append(conversion_rates.get("ARS")).append("\n");
+        sb.append("BRL: ").append(conversion_rates.get("BRL")).append("\n");
+
+        return sb.toString();
     }
 }

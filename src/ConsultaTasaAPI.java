@@ -11,9 +11,12 @@ public class ConsultaTasaAPI {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner lectura = new Scanner(System.in);
         System.out.println("Divisa");
-        var busqueda = lectura.nextLine();
+        String divisaBase = lectura.nextLine();
 
-        String direccion = "https://v6.exchangerate-api.com/v6/e66863d763e9ba5b6ed96c97/latest/"+ busqueda;
+        System.out.println("Cantidad: ");
+        double cantidad = lectura.nextDouble();
+
+        String direccion = "https://v6.exchangerate-api.com/v6/e66863d763e9ba5b6ed96c97/latest/"+ divisaBase;
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
