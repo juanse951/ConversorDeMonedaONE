@@ -9,12 +9,13 @@ import java.util.Scanner;
 
 public class ConsultaTasaAPI {
     public static void main(String[] args) throws IOException, InterruptedException {
-        Scanner lectura = new Scanner(System.in);
-        System.out.println("Divisa");
-        String divisaBase = lectura.nextLine();
+        MenuConversiones.mostrarMenu();
+    }
 
-        System.out.println("Cantidad: ");
-        double cantidad = lectura.nextDouble();
+    public static void convertir(String divisaBase, String divisaDestino) throws IOException,InterruptedException {
+        Scanner lectura = new Scanner(System.in);
+        System.out.println("Cantidad");
+        Double cantidad = lectura.nextDouble();
 
         String direccion = "https://v6.exchangerate-api.com/v6/e66863d763e9ba5b6ed96c97/latest/"+ divisaBase;
 
@@ -30,7 +31,11 @@ public class ConsultaTasaAPI {
 
         Gson gson = new Gson();
         TasasDeCambio tipoDeCambio =  gson.fromJson(json, TasasDeCambio.class);
-        System.out.println(tipoDeCambio);
+
+        double tasaCambio = tipoDeCambio.getConversion_rates().get(divisaDestino);
+        double equivalencia = cantidad * tasaCambio;
+
+        System.out.println(cantidad + " " + divisaBase + "Equivalen a: " + equivalencia + " " + divisaDestino);
 
         }
     }
