@@ -32,7 +32,7 @@ public class ConsultaTasaAPI {
         Gson gson = new Gson();
         TasasDeCambio tipoDeCambio =  gson.fromJson(json, TasasDeCambio.class);
 
-        double tasaCambio = tipoDeCambio.getConversion_rates().get(divisaDestino);
+        double tasaCambio = tipoDeCambio.conversion_rates().get(divisaDestino);
         double equivalencia = cantidad * tasaCambio;
 
         System.out.println("La cantidad: " + String.format("%.2f", cantidad) + " " + divisaBase + " Equivale a: " + String.format("%.2f", equivalencia) + " " + divisaDestino + "\n");
