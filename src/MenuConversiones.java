@@ -2,19 +2,20 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class MenuConversiones {
-    public static void mostrarMenu() throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Scanner lectura = new Scanner(System.in);
 
         while (true){
             System.out.println("Menú de conversiones: ");
-            System.out.println("1. USD a ARS");
-            System.out.println("2. ARS a USD");
-            System.out.println("3. COP a USD");
-            System.out.println("4. USD a COP");
-            System.out.println("5. BRL a USD");
-            System.out.println("6. USD a BRL");
+            System.out.println("1. Dólar => Peso Argentino");
+            System.out.println("2. Peso Argentino => Dólar");
+            System.out.println("3. Peso Colombiano => Dólar");
+            System.out.println("4. Dólar => Peso Colombiano");
+            System.out.println("5. Real Brasileño => Dólar");
+            System.out.println("6. Dólar => Real Brasileño");
             System.out.println("7. Salir");
-            System.out.println("Seleccione una opción: ");
+            System.out.println("Seleccione una opción válida: ");
+            System.out.println("*******************************************");
 
             int opcion = lectura.nextInt();
             lectura.nextLine(); // consume el salto de linea
