@@ -60,6 +60,7 @@ public class MenuConversiones {
                 System.out.println("Ocurrio un error inesperado de tipo: " + e.getMessage());
                 System.out.println("Finalizó la ejecución del programa.");
                 break;
+
             }
         }
     }
