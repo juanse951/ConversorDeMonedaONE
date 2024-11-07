@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuConversiones {
@@ -17,25 +18,35 @@ public class MenuConversiones {
             System.out.println("Seleccione una opción válida: ");
             System.out.println("*******************************************");
 
-            int opcion = lectura.nextInt();
-            lectura.nextLine(); // consume el salto de linea
+            try{
+                int opcion = lectura.nextInt();
+                lectura.nextLine(); // consume el salto de linea
 
-            if(opcion == 1){
-                ConsultaTasaAPI.convertir("USD","ARS");
-            } else if (opcion == 2) {
-                ConsultaTasaAPI.convertir("ARS","USD");
-            } else if (opcion == 3) {
-                ConsultaTasaAPI.convertir("COP","USD");
-            } else if (opcion == 4) {
-                ConsultaTasaAPI.convertir("USD","COP");
-            } else if (opcion == 5) {
-                ConsultaTasaAPI.convertir("BRL","USD");
-            } else if (opcion == 6) {
-                ConsultaTasaAPI.convertir("USD","BRL");
-            } else if (opcion == 7) {
+                if(opcion == 1){
+                    ConsultaTasaAPI.convertir("USD","ARS");
+                } else if (opcion == 2) {
+                    ConsultaTasaAPI.convertir("ARS","USD");
+                } else if (opcion == 3) {
+                    ConsultaTasaAPI.convertir("COP","USD");
+                } else if (opcion == 4) {
+                    ConsultaTasaAPI.convertir("USD","COP");
+                } else if (opcion == 5) {
+                    ConsultaTasaAPI.convertir("BRL","USD");
+                } else if (opcion == 6) {
+                    ConsultaTasaAPI.convertir("USD","BRL");
+                } else if (opcion == 7) {
+                    break;
+                }else {
+                    System.out.println("Opción invalida.");
+                }
+            }catch (InputMismatchException e){
+                System.out.println("Ocurrio un error de tipo: "+ e.getMessage());
+                System.out.println("Finalizó la ejecución del programa.");
                 break;
-            }else {
-                System.out.println("Opción invalida.");
+            }catch (Exception e) {
+                System.out.println("Ocurrio un error inesperado de tipo: " + e.getMessage());
+                System.out.println("Finalizó la ejecución del programa.");
+                break;
             }
         }
     }
