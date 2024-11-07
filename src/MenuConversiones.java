@@ -14,7 +14,12 @@ public class MenuConversiones {
             System.out.println("4. Dólar => Peso Colombiano");
             System.out.println("5. Real Brasileño => Dólar");
             System.out.println("6. Dólar => Real Brasileño");
-            System.out.println("7. Salir");
+            System.out.println("7. Yuan Chino => Dólar");
+            System.out.println("8. Dólar => Yuan Chino");
+            System.out.println("9. Euro => Dólar");
+            System.out.println("10. Dólar => Euro");
+
+            System.out.println("11. Salir");
             System.out.println("Seleccione una opción válida: ");
             System.out.println("*******************************************");
 
@@ -35,6 +40,14 @@ public class MenuConversiones {
                 } else if (opcion == 6) {
                     ConsultaTasaAPI.convertir("USD","BRL");
                 } else if (opcion == 7) {
+                    ConsultaTasaAPI.convertir("CNY","USD");
+                } else if (opcion == 8) {
+                    ConsultaTasaAPI.convertir("USD","CNY");
+                } else if (opcion == 9) {
+                    ConsultaTasaAPI.convertir("EUR","USD");
+                } else if (opcion == 10) {
+                    ConsultaTasaAPI.convertir("USD","EUR");
+                } else if (opcion == 11) {
                     break;
                 }else {
                     System.out.println("Opción invalida.");
